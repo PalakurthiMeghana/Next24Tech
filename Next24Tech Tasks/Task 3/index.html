@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Learnify | Learn Anywhere</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f0f4ff, #eaf6ff);
+      color: #333;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #2a3f91;
+    }
+
+    nav a {
+      color: #2a3f91;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6b6b;
+    }
+
+    .banner-quote {
+      background: #ffefef;
+      padding: 0.8rem 2rem;
+      text-align: center;
+      font-weight: 600;
+      color: #b23b3b;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('images/marketing.jpg') no-repeat center center/cover;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      background: rgba(0,0,0,0.3);
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h3 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #2a3f91;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h4 {
+      margin-top: 1rem;
+      color: #1b2d6b;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .card button {
+      margin-top: 1rem;
+      background-color: #2a3f91;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background-color: #1b2d6b;
+    }
+
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .faq-item {
+      background: #fefefe;
+      padding: 1rem;
+      border-left: 4px solid #2a3f91;
+      border-radius: 10px;
+    }
+
+    .faq-item h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-info {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      line-height: 1.6;
+    }
+
+    .contact-info h4 {
+      margin-bottom: 1rem;
+      color: #2a3f91;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
+    }
+
+    .map {
+      background-color: #d8eaff;
+      border-radius: 15px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-style: italic;
+      color: #2a3f91;
+    }
+
+    form input, form textarea {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    form button {
+      background-color: #2a3f91;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    form button:hover {
+      background-color: #1b2d6b;
+    }
+
+    footer {
+      background-color: #2a3f91;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    footer input {
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: none;
+      margin-right: 0.5rem;
+      width: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .section h3 {
+        font-size: 2rem;
+      }
+
+      footer input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>E-Learnify</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Courses</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="banner-quote">"Shop Smart. Learn Better. Grow Faster."</div>
+
+  <section class="hero">
+    <h2>Learn. Grow. Succeed. Anywhere.</h2>
+  </section>
+
+  <section class="section">
+    <h3>Explore Our Top Courses</h3>
+    <div class="courses">
+      <div class="card">
+        <img src="images/coding.jpg" alt="Coding">
+        <h4>Full Stack Development</h4>
+        <p>Learn HTML, CSS, JavaScript, Node.js, and databases.</p>
+        <button>Enroll Now</button>
+      </div>
+      <div class="card">
+        <img src="images/data,ai.jpg" alt="AI">
+        <h4>Data Science & AI</h4>
+        <p>Master Python, machine learning, and AI concepts.</p>
+        <button>Enroll Now</button>
+      </div>
+      <div class="card">
+        <img src="images/marketing.jpg" alt="Marketing">
+        <h4>Digital Marketing</h4>
+        <p>Learn SEO, SEM, social media marketing, and branding.</p>
+        <button>Enroll Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>FAQs</h3>
+    <div class="faq">
+      <div class="faq-item">
+        <h4>What is the duration of courses?</h4>
+        <p>Each course lasts between 6 to 12 weeks depending on the subject.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I get a certificate?</h4>
+        <p>Yes! You'll receive an industry-recognized certificate after completion.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are courses self-paced?</h4>
+        <p>Yes, you can learn at your own pace with our flexible structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: #f9f9ff;">
+    <h3>Contact Us</h3>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h4>Get in Touch</h4>
+        <p><strong>Email:</strong> support@elearnify.com</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Address:</strong> E-Learnify HQ, Tech Valley, Hyderabad, India</p>
+        <p><strong>Support Hours:</strong> Mon–Fri, 10 AM – 6 PM</p>
+      </div>
+      <div class="map">
+        Map/Location Preview Coming Soon
+      </div>
+    </div>
+    <br>
+    <form>
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 E-Learnify. Built with passion for learners worldwide 🌏</p>
+    <br>
+    <form>
+      <input type="email" placeholder="Subscribe to our newsletter">
+      <button type="submit">Subscribe</button>
+    </form>
+  </footer>
+
+</body>
+</html>
